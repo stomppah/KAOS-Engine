@@ -110,3 +110,4 @@ UpgradeLog*.XML
 *.db
 /KAOS/Data/Models/*.blend1
 /KAOS/Data/Models/*.blend2
+/.vs/
