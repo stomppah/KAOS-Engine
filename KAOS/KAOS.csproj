@@ -1,67 +1,32 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{43E7C301-7345-49D7-B8E8-F02B097F599F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KAOS</RootNamespace>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
     <AssemblyName>KAOS</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <RootNamespace>KAOS</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="AssimpNet, Version=3.2.0.0, Culture=neutral, PublicKeyToken=0d51b391f59f42a6, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\AssimpNet\Net45-Debug\AssimpNet.dll</HintPath>
-    </Reference>
+    <PackageReference Include="OpenTK" Version="4.8.2" />
+    <PackageReference Include="OpenTK.GLControl" Version="4.8.2" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="AssimpNet" Version="5.0.0-beta1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="MataliPhysics">
       <HintPath>..\Dependencies\MataliPhysicsBasic\MataliPhysicsOpenTK\Mono\MataliPhysics\AnyCPU\MataliPhysics.dll</HintPath>
     </Reference>
     <Reference Include="MataliRender">
       <HintPath>..\Dependencies\MataliPhysicsBasic\MataliPhysicsOpenTK\Mono\MataliPhysics\AnyCPU\MataliRender.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenTK">
-      <HintPath>..\packages\OpenTK.1.1.1508.5724\lib\NET40\OpenTK.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
+
   <ItemGroup>
     <Compile Include="Interfaces\IGameObject.cs" />
     <Compile Include="Managers\VertexBufferManager.cs" />
@@ -72,42 +37,18 @@
     <Compile Include="Managers\TextureManager.cs" />
     <Compile Include="Nodes\GraphLinesNode.cs" />
     <Compile Include="Nodes\PolygonNode.cs" />
-    <Compile Include="Shapes\Capsule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\ChamferCube.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\KochTetrahedron.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\MengerSponge.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\Old\IsoSphere.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\Old\Plane.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\Old\Shape.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\Old\SierpinskiTetrahedron.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\SlicedHose.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\SlicedSphere.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\TorusKnot.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Shapes\VertexPositionColor.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Shapes\Capsule.cs" />
+    <Compile Include="Shapes\ChamferCube.cs" />
+    <Compile Include="Shapes\KochTetrahedron.cs" />
+    <Compile Include="Shapes\MengerSponge.cs" />
+    <Compile Include="Shapes\Old\IsoSphere.cs" />
+    <Compile Include="Shapes\Old\Plane.cs" />
+    <Compile Include="Shapes\Old\Shape.cs" />
+    <Compile Include="Shapes\Old\SierpinskiTetrahedron.cs" />
+    <Compile Include="Shapes\SlicedHose.cs" />
+    <Compile Include="Shapes\SlicedSphere.cs" />
+    <Compile Include="Shapes\TorusKnot.cs" />
+    <Compile Include="Shapes\VertexPositionColor.cs" />
     <Compile Include="States\AbstractState.cs" />
     <Compile Include="States\MandelbrotState.cs" />
     <Compile Include="States\ModelState.cs" />
@@ -137,137 +78,4 @@
     <Compile Include="Utilities\TextRenderer.cs" />
     <Compile Include="Utilities\Texture.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Data\Shaders\assimp-vs.glsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Shaders\assimp-fs.glsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Shaders\mbrot-fs.glsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Shaders\fractal-fs.glsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Shaders\fractal-vs.glsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Shaders\render-fs.glsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Shaders\render-vs.glsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Shaders\skybox-fs.glsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Shaders\skybox-vs.glsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Textures\earth-cubemap.dds">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Textures\swizzled-rock-diffuse-height.dds">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Textures\swizzled-rock-normal-gloss.dds">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="libSDL2.dylib" />
-    <None Include="OpenTK.dll.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="packages.config" />
-    <None Include="pal.ppm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assimp64.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="AssimpLicense.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Data\Shaders\mbrot-vs.glsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <Content Include="Data\Textures\skybox\neg_x.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\skybox\neg_y.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\skybox\neg_z.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\skybox\pos_x.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\skybox\pos_y.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\skybox\pos_z.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\JuliaColorTable.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\logo-dark.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\logo.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\metal.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\sundown\neg_z.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\sundown\pos_z.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\sundown\jajsundown1_left.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\sundown\jajsundown1_right.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\sundown\pos_y.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Textures\sundown\Note.txt" />
-    <Content Include="Data\Textures\Swizzled Textures License.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="openal32.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="pal.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SDL2.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
